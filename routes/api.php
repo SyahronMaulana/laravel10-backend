@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UploadController;
 use Illuminate\Http\Request;
@@ -30,6 +31,9 @@ Route::post('/logout', [AuthController::class, 'logout'])
 Route::post('/image/upload', [UploadController::class, 'uploadImage'])
     ->middleware('auth:sanctum');
 Route::post('/image/upload-multiple', [UploadController::class, 'uploadMultipleImage'])
+    ->middleware('auth:sanctum');
+
+Route::post('orders', [OrderController::class, 'order'])
     ->middleware('auth:sanctum');
 
 Route::apiResource('categories', CategoryController::class);
