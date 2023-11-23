@@ -23,7 +23,7 @@ class OrderController extends Controller
             OrderItem::create([
                 'order_id' => $order->id,
                 'product_id' => $item['id'],
-                'qty' => $item['quantity'],
+                'quantity' => $item['quantity'],
             ]);
         }
 
