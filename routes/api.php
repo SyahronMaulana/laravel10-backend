@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CallbackController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
@@ -35,6 +36,8 @@ Route::post('/image/upload-multiple', [UploadController::class, 'uploadMultipleI
 
 Route::post('orders', [OrderController::class, 'order'])
     ->middleware('auth:sanctum');
+
+Route::post('/midtrans/notification/handling', [CallbackController::class, 'callback']);
 
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('products', ProductController::class);
